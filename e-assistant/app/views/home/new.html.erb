@@ -1,0 +1,28 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/logo.ico">
+  <link rel="stylesheet" type="text/css" href="application.css">
+  <title>
+    e-Assistant
+  </title>
+</head>
+<body>
+  <div class="title">e-Assistant</div>
+  <div class="subtitle">新規登録</div>
+  <%= form_tag("/home/create") do %>
+  <div class="login-container">
+    <label for="user_id"><b>新ログイン名</b></label>
+    <input type="text" placeholder="" name="user_id" required><br><br>
+    <label for="password"><b>新パスワード</b></label>
+    <input type="password" placehodler="" name="password" required><br><br>
+    <label for="password_confirmation"><b>もう一回パスワード</b></label>
+    <input type="password" placehodler="" name="password_confirmation" required><br><br>
+    <label for="email"><b>メールアドレス</b></label>
+    <input type="text" placeholder="" name="email" required><br><br>
+    <button type="submit">送信</button>
+  </div>
+  <% end %>
+</body>
+</html>

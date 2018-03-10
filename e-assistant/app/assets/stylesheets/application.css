@@ -1,0 +1,510 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font: 100 16px/1.5 "Arial";
+    color: #777;
+}
+
+.navigation {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    font-family: "Arial";
+    font-weight: 100;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    background: rgba(0, 0, 0, .5);
+    transition: 0.2s;
+    display: inline;
+    float: left;
+}
+
+.navigation li:hover {
+    background: rgba(0, 0, 0, 1.0);
+}
+
+.navigation a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.top-background {
+    position: inherit;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/img/top_background.jpeg");
+    height: 100%;
+}
+
+.welcome-message-container {
+    position: relative;
+    margin: auto;
+    padding-top:10%;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+
+.welcome-message {
+    text-align: left;
+    font-size: 300%;
+    font-weight: 300;
+    margin-left: 10%;
+    margin-right: 20%;
+    padding-top: 10%;
+}
+
+.welcome-message text {
+    color: white;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 20px;
+}
+
+.welcome-submessage {
+    text-align: left;
+    font-size: 100%;
+    font-weight: 300;
+    margin-left: 20%;
+    margin-top: 1%;
+}
+
+.welcome-submessage text {
+    color: white;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 20px;
+}
+
+.login-container {
+    position: relative;
+    margin: auto;
+    background-color: white;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 500%;
+    font-weight: 300;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 200%;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    height: 20px;
+    padding 12px 20px;
+    margin 8px 0;
+    display: inline-bloc;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button-top {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.5s;
+}
+
+button-top:hover {
+    color:black;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+/*Attension 用のcss*/
+.flash {
+  padding: 5px 0;
+  color: white;
+  background: rgb(251, 170, 88);
+  text-align: center;
+  position: absolute;
+  /*top: 30px;*/
+  *z-index: 10;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
+}
+
+
+/*
+.background {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("img/background.jpg");
+  height: 100%;
+}
+
+.navigation{
+    background: rgba(0, 0, 0, .5);
+    position: relative;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    font-family: "Arial";
+    font-weight: 100;
+}
+.navigation li{
+    margin-right: 60px;
+    margin-left: 60px;
+    display: inline;
+}
+.navigation a{
+    text-decoration: none;
+    padding-bottom: 12px;
+    color: white;
+    transition: 0.2s;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding: 10px;
+}
+.navigation a:hover{
+    background: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+.lang{
+    position: absolute;
+    top: 10px;
+    right: 2%;
+}
+.dropbtn {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding-bottom: 12px;
+    font-size: 16px;
+    font-family: "Arial";
+    font-weight: 100;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    padding: 11px;
+    border-radius: 5px 5px 0 0;
+    transition: 0.3s;
+
+}
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.2);
+    min-width: 160px;
+    z-index: 1;
+    transition: 0.2s;
+    border-radius: 0 5px 5px 5px;
+}
+.dropdown-flag{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.2);
+    min-width: 50px;
+    z-index: 1;
+    transition: 0.2s;
+    border-radius: 0 5px 5px 5px;
+}
+.dropdown-content a{
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: .3s;
+}
+.dropdown-content a:hover{
+    background: rgba(0, 0, 0, .85);
+}
+.dropdown:hover .dropdown-content{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown-flag a{
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: .3s;
+}
+.dropdown-flag a:hover{
+    background: rgba(0, 0, 0, .85);
+}
+.dropdown:hover .dropdown-flag{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown:hover .dropbtn{
+    background: rgba(0, 0, 0, .5);
+}
+
+h2{
+    text-align: center;
+    font-weight: 300;
+}
+
+h3{
+    font-weight: 100;
+    display: inline;
+}
+
+.screen{
+    position: absolute;
+    text-align: left;
+    left: 400px;
+    right: 400px;
+    top: 21.5%;
+    bottom: 30.5%;
+    color: white;
+    overflow: auto;
+    border-radius: 5px;
+    min-width: 550px;
+}
+
+.circle-left{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    float: left;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 50px;
+    font-family: "Times New Roman";
+}
+.circle-right{
+    border-radius: 50%;
+    height: 100px;
+    position: absolute;
+    float: inherit;
+    right: 2%;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 50px;
+    font-family: "Times New Roman";
+}
+.square-right{
+    border-radius: 10px;
+    padding: 15px;
+    left: 120px;
+    background-color: whitesmoke;
+    color: black;
+    position: relative;
+    width: 60%;
+    font-size: 14px;
+    text-align: justify;
+}
+.square-right:before{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -30px;
+    top: 10px;
+    border-left: 15px solid;
+    border-top: 10px solid;
+    border-bottom: 10px solid;
+    border-right: 15px solid;
+    border-color: transparent whitesmoke transparent transparent;
+}
+.square-left{
+    border-radius: 10px;
+    padding: 15px;
+    left: 100px;
+    background-color: whitesmoke;
+    color: black;
+    position: relative;
+    width: 61%;
+    font-size: 14px;
+    text-align: justify;
+}
+.square-left:after{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -30px;
+    top: 10px;
+    border-left: 15px solid;
+    border-top: 10px solid;
+    border-bottom: 10px solid;
+    border-right: 15px solid;
+    border-color: transparent transparent transparent whitesmoke;
+}
+.pic{
+    -webkit-box-shadow: 0px 0px 3px 3px #ccc;
+    -moz-box-shadow:    0px 0px 3px 3px #ccc;
+    box-shadow:         0px 0px 3px 3px #ccc;
+    width: 400px;
+    height: auto;
+}
+
+.welcomepic{
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    border: 5px white solid;
+}
+
+#flags{
+    text-align: center;
+}
+
+.flag{
+    width: 30px;
+    height: 30px;
+    border: 0px solid black;
+}
+
+#footer{
+    overflow: hidden;
+    position: fixed;
+    bottom: 5px;
+    padding: 5px;
+    width: 100%;
+    height: 20px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 13px;
+    font-family: "Arial";
+    font-weight: 100;
+    letter-spacing: 0.5pt;
+}
+
+#footer a{
+    color: black;
+    text-decoration: none;
+}
+
+#footer a:hover{
+    text-decoration:underline;
+}
+
+table {
+    color: #333;
+    font-family: Arial, sans-serif;
+    width: 97%;
+    border-spacing: 1px;
+    border-collapse: collapse;
+}
+
+th {
+    border: 1px solid #999;
+    background-color: white;
+    color: #black; font-weight: bold;
+    height: 30px;
+    padding: 10px;
+}
+
+td {
+    border: 1px solid #999;
+    height: 30px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+
+tr.alt td, tr.alt th {
+    color: black;
+    background-color: #D8D8D8;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0, 0);
+}
+
+*/
