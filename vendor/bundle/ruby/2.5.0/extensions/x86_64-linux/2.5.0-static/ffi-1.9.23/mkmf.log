@@ -244,7 +244,7 @@ checked program was:
 /* end */
 
 "gcc -o conftest -I/root/.rbenv/versions/2.5.0/include/ruby-2.5.0/x86_64-linux -I/root/.rbenv/versions/2.5.0/include/ruby-2.5.0/ruby/backward -I/root/.rbenv/versions/2.5.0/include/ruby-2.5.0 -I. -I/root/.rbenv/versions/2.5.0/include    -O3 -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wno-tautological-compare -Wno-parentheses-equality -Wno-constant-logical-operand -Wno-self-assign -Wunused-variable -Wimplicit-int -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration -Wdeprecated-declarations -Wno-packed-bitfield-compat -Wsuggest-attribute=noreturn -Wsuggest-attribute=format -Wno-maybe-uninitialized conftest.c  -L. -L/root/.rbenv/versions/2.5.0/lib -Wl,-rpath,/root/.rbenv/versions/2.5.0/lib -L. -L/root/.rbenv/versions/2.5.0/lib  -fstack-protector -rdynamic -Wl,-export-dynamic    -lffi  -Wl,-rpath,/root/.rbenv/versions/2.5.0/lib -L/root/.rbenv/versions/2.5.0/lib -lruby-static -lffi  -lpthread -ldl -lcrypt -lm   -lc"
-/tmp/cclyLfN3.o: In function `t':
+/tmp/ccUKIWb2.o: In function `t':
 /root/eassistant/vendor/bundle/ruby/2.5.0/gems/ffi-1.9.23/ext/ffi_c/conftest.c:14: undefined reference to `rb_thread_blocking_region'
 collect2: error: ld returned 1 exit status
 checked program was:

@@ -1,5 +1,5 @@
 current directory: /root/eassistant/vendor/bundle/ruby/2.5.0/gems/nio4r-2.2.0/ext/nio4r
-/root/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180310-23878-1vb7yfu.rb extconf.rb
+/root/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180310-12105-oaurlb.rb extconf.rb
 checking for unistd.h... yes
 checking for sys/select.h... yes
 checking for port_event_t in poll.h... no
@@ -214,4 +214,4 @@ linking shared-object nio4r_ext.so
 
 current directory: /root/eassistant/vendor/bundle/ruby/2.5.0/gems/nio4r-2.2.0/ext/nio4r
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20180310-23878-ji1sb3
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20180310-12105-a5nzdn

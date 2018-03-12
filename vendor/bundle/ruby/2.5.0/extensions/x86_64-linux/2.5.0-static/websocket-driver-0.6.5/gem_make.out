@@ -1,5 +1,5 @@
 current directory: /root/eassistant/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.6.5/ext/websocket-driver
-/root/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180310-23878-x9yx0p.rb extconf.rb
+/root/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180310-12105-y5siuj.rb extconf.rb
 creating Makefile
 
 current directory: /root/eassistant/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.6.5/ext/websocket-driver
@@ -12,4 +12,4 @@ linking shared-object websocket_mask.so
 
 current directory: /root/eassistant/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.6.5/ext/websocket-driver
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20180310-23878-1gn6bj2
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20180310-12105-i97jv1

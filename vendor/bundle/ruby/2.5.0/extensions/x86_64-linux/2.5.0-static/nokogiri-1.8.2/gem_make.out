@@ -1,5 +1,5 @@
 current directory: /root/eassistant/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.8.2/ext/nokogiri
-/root/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180310-23878-1xq9dpy.rb extconf.rb
+/root/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180310-12105-zbzn9i.rb extconf.rb
 checking if the C compiler accepts ... yes
 Building nokogiri using packaged libraries.
 Using mini_portile version 2.3.0
@@ -708,4 +708,4 @@ rm -rf /root/eassistant/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.8.2/ports
 
 current directory: /root/eassistant/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.8.2/ext/nokogiri
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20180310-23878-6mvazq/nokogiri
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20180310-12105-1lnf0a3/nokogiri
