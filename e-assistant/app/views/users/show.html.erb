@@ -2,5 +2,16 @@
 
 <p>ユーザーID: <%= @user.user_id %> </p>
 <p>Eメール: <%= @user.email %></p>
+<p>プロフィール画像</p>
+<% if @user.user_image %>
+<img src="<%= "/img/#{@user.id}.jpg"%>" >
+<% else %>
+<img src="<%= "/img/sample.jpg"%>" >
+<% end %>
 
 <%= link_to("戻る", "/")%>
+<%= link_to("編集", "/users/#{@user.id}/edit")%>
+<%= link_to("タスク追加", "/events")%>
+<div id="calendar">
+
+</div>

@@ -11,7 +11,7 @@
 <body>
   <div class="title">e-Assistant</div>
   <div class="subtitle">新規登録</div>
-  <%= form_tag("/home/create") do %>
+  <%= form_tag("/home/create", {multipart: true}) do %>
   <div class="login-container">
     <label for="user_id"><b>新ログイン名</b></label>
     <input type="text" placeholder="" name="user_id" required><br><br>
@@ -21,6 +21,8 @@
     <input type="password" placehodler="" name="password_confirmation" required><br><br>
     <label for="email"><b>メールアドレス</b></label>
     <input type="text" placeholder="" name="email" required><br><br>
+    <label for="image"><b>プロフィール画像</b></label>
+    <input type="file" name="image">
     <button type="submit">送信</button>
   </div>
   <% end %>

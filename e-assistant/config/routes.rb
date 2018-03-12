@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :events
+  get 'calendar/index'
+  post 'users/:id/update' => 'users#update'
+  get 'users/:id/edit' => 'users#edit'
   post 'users/login' => 'users#login'
   post 'home/create' => 'home#create'
   get 'home/new' => 'home#new'
