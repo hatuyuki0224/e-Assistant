@@ -200,7 +200,216 @@ span.psw {
   font-size: 14px;
 }
 
+/*追加分 3/12*/
+.top-bar {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    font-size: 16px;
+    font-family: "Arial";
+    font-weight: 300;
+    background: yellow;
+    padding: 3% 3% 3% 5%;
+    color: black;
+}
 
+.userID {
+    position: relaive;
+    text-align: right;
+    padding-right: 10%;
+}
+
+.main-container {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    padding-top:5%;
+}
+
+.circle {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    position: absolute; /*fixedからabsoluteに変更*/ 
+    float: left;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 50px;
+    font-family: "Times New Roman";
+}
+
+.square {
+    border-radius: 10px;
+    padding: 15px;
+    left: 120px;
+    background-color: whitesmoke;
+    color: black;
+    position: relative;
+    width: 60%;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.square:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -30px;
+    top: 10px;
+    border-left: 15px solid;
+    border-top: 10px solid;
+    border-bottom: 10px solid;
+    border-right: 15px solid;
+    border-color: transparent whitesmoke transparent transparent;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.calendar-container {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    padding-top: 5%;
+
+}
+
+.add-button {
+    background-image: url("/img/button-add.png");
+    position: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50;
+    width: 50;
+    align-self: stretch;
+}
+
+ /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+ /* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: black;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
 /*
 .background {
   position: relative;

@@ -1,17 +1,74 @@
-<h1>ユーザー情報</h1>
 
-<p>ユーザーID: <%= @user.user_id %> </p>
-<p>Eメール: <%= @user.email %></p>
-<p>プロフィール画像</p>
-<% if @user.user_image %>
-<img src="<%= "/img/#{@user.id}.jpg"%>" >
-<% else %>
-<img src="<%= "/img/sample.jpg"%>" >
-<% end %>
 
-<%= link_to("戻る", "/")%>
-<%= link_to("編集", "/users/#{@user.id}/edit")%>
-<%= link_to("タスク追加", "/events")%>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/logo.ico">
+  <link rel="stylesheet" type="text/css" href="application.css">
+  <title>
+    e-Assistant
+  </title>
+</head>
+<body>
+  <div class="top-bar">
+    <%= link_to("e-Assistant", "/")%>
+    <div class="userID">
+      Welcome back,
+      <div class="tooltip">
+        <a href="<%= "/users/#{@user.id}/edit"%>"><img src="/img/button-setting.png" alt="User setting" width="15" height="15"><%= @user.user_id%>!</a>
+        <div class="tooltiptext">
+          Edit account
+        </div>
+      </div>
+      (<a href="top.html">Logout</a>)
+    </div>
+  </div>
+  <div class="main-container">
+    <% if @user.user_image %>
+    <img class="circle" id="user_img" src="<%= "/img/#{@user.id}.jpg"%>" >
+    <% else %>
+    <img class="circle" id="user_img" src="/img/user.png">
+    <% end %>
+
+    <div class="square">
+      現在のタスクは「タスク名」である。<br>
+      残り時間：... <br>
+      <%= @user.user_id%>さん、頑張ってください！
+    </div>
+    <div class="calendar-container">
+      今日のスケジュール
+    </div>
+    <div class="tooltip">
+      <button onclick="document.getElementById('id01').style.display='block'">新タスク</button>
+
+      <!-- Modal -->
+      <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+        <!-- Modal Content -->
+        <form class="modal-content animate" action="/action_page.php">
+          <div class="container">
+            <label for="task_name"><b>タスク名</b></label>
+            <input type="text" placeholder="Enter task name" name="task_name" required>
+
+            <label for="deadline_time"><b>締め切り日時</b></label>
+            <input type="text" placeholder="Enter deadline" name="deadline_time" required>
+
+            <label for="required_time"><b>かかる時間</b></label>
+            <input type="text" placeholder="Enter required time" name="required_time" required>
+
+            <label for="priority"><b>優先度</b></label>
+            <input type="text" placeholder=" ボタンに変更" name="priority" required>
+
+            <label for="comment"><b>コメント</b></label>
+            <input type="text" placeholder="Enter comment" name="coment">
+
+            <button type="submit">追加</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
 <div id="calendar">
-
-</div>

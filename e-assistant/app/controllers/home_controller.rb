@@ -8,7 +8,8 @@ class HomeController < ApplicationController
   end
 
   def create
-    @user = User.new(email: params[:email], user_id: params[:user_id], password: params[:password], password_confirmation: params[:password_confirmation])
+    @user = User.new(email: params[:email], user_id: params[:user_id],
+      password: params[:password], password_confirmation: params[:password_confirmation])
 
 
     if @user.password == @user.password_confirmation
