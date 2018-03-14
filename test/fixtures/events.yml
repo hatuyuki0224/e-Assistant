@@ -2,10 +2,14 @@
 
 one:
   title: MyString
-  start: 2018-03-12 07:56:23
-  end: 2018-03-12 07:56:23
+  start: 2018-03-13 18:43:40
+  end: 2018-03-13 18:43:40
+  color: MyString
+  allDay: false
 
 two:
   title: MyString
-  start: 2018-03-12 07:56:23
-  end: 2018-03-12 07:56:23
+  start: 2018-03-13 18:43:40
+  end: 2018-03-13 18:43:40
+  color: MyString
+  allDay: false

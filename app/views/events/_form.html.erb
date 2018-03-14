@@ -26,6 +26,16 @@
     <%= form.datetime_select :end, id: :event_end %>
   </div>
 
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color, id: :event_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :allDay %>
+    <%= form.check_box :allDay, id: :event_allDay %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
