@@ -26,26 +26,8 @@
   </div>
 
   <div class="main-container">
-    <div id="user-info" class="tabcontent">
-      <div class="info-container">
-        <% if @user.user_image %>
-        <img class="circle" id="user_img" src="<%= "/img/#{@user.id}.jpg"%>" ><br><br><br><br><br>
-        <% else %>
-        <img class="circle" id="user_img" src="/img/user.png"><br><br><br><br><br>
-        <% end %>
-        <label for="user_id"><b>ログイン名</b></label><br>
-        <label for="user_id"><%= @user.user_id%></label><br><br>
-        <label for="password"><b>パスワード</b></label><br>
-        <label for="password">*****</label><br><br>
-        <label for="email"><b>メールアドレス</b></label><br>
-        <label for="email"><%= @user.email%></label><br><br>
-      </div>
-      <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'user-info-edit')">Edit</button>
-      </div>
-    </div>
 
-    <div id="user-info-edit" class="tabcontent">
+
       <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
       <div class="info-container">
         <!-- <button>Upload new photo</button> -->
@@ -67,7 +49,7 @@
         <button class="tablinks" onclick="openTab(event, 'user-info')"　type=submit id="defaultOpen">更新</button>
       </div>
 
-    </div>
+
 
   </div>
   <script>

@@ -14,13 +14,16 @@
     <%= link_to("e-Assistant", "/")%>
     <div class="userID">
       Welcome back,
+      <% if @current_user.id %>
+      <%= @current_user.id %>
+      <% end %>
       <div class="tooltip">
         <a href="<%= "/users/#{@user.id}/edit"%>"><img src="/img/button-setting.png" alt="User setting" width="15" height="15"><%= @user.user_id%>!</a>
         <div class="tooltiptext">
           Edit account
         </div>
       </div>
-      (<a href="top.html">Logout</a>)
+      <%= link_to("Logout", "/logout", {method: :post})%>
     </div>
   </div>
   <div class="main-container">

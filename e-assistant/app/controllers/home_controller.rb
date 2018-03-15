@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :forbid_login_user, {only: [:new, :create]}
   def top
     @user = User.find_by(user_id: params[:user_id])
 
@@ -14,6 +15,7 @@ class HomeController < ApplicationController
 
     if @user.password == @user.password_confirmation
       if @user.save
+        session[:user_id] = @user.id
         if params[:image]
           @user.user_image = "#{@user.id}.jpg"
           image = params[:image]
