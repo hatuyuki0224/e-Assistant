@@ -15,7 +15,8 @@ class UsersController < ApplicationController
       flash[:notice] = "ログインに成功しました"
       redirect_to("/users/#{@user.id}")
     else
-      render("home/top")
+      @error_message = "ログイン名またはパスワードが違います"
+      render("home/login")
     end
   end
 
@@ -36,13 +37,12 @@ class UsersController < ApplicationController
       File.binwrite("public/img/#{@user.user_image}", image.read)
     end
 
-    if @user.password == @user.password_confirmation
-      if @user.save
-        flash[:notice] = "ユーザー情報を編集しました"
-        redirect_to("/users/#{@user.id}")
-      else
-        render("users/edit_form")
-      end
+
+    if @user.save
+      flash[:notice] = "ユーザー情報を編集しました"
+      redirect_to("/users/#{@user.id}")
+    else
+      render("users/edit_form")
     end
   end
 

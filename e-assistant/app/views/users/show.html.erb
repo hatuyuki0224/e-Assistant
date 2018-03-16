@@ -49,8 +49,10 @@
         <span onclick="document.getElementById('id01').style.display='none'"
         class="close" title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php">
+        <%= form_tag("/tasks") do %>
+        <!-- <form class="modal-content animate" action="/action_page.php"> -->
           <div class="container">
+
             <label for="task_name"><b>タスク名</b></label>
             <input type="text" placeholder="Enter task name" name="task_name" required>
 
@@ -65,13 +67,14 @@
 
             <label for="comment"><b>コメント</b></label>
             <input type="text" placeholder="Enter comment" name="coment">
+            <input type="submit" value="追加">
 
-            <button type="submit">追加</button>
           </div>
+          <% end %>
         </form>
       </div>
     </div>
+    <div id="calendar">
   </div>
 </body>
 </html>
-<div id="calendar">

@@ -31,14 +31,19 @@
       <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
       <div class="info-container">
         <!-- <button>Upload new photo</button> -->
+        <% @user.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+        <% end %>
         <label for="user_id"><b>新ログイン名</b></label>
-        <input type="text" placeholder=""   name="user_id" value= "<%= @user.user_id%>"><br><br>
+        <input type="text" placeholder=""   name="user_id" value= "<%= @user.user_id%>" required><br><br>
         <label for="password"><b>新パスワード</b></label>
-        <input type="password" placehodler=""       name="password" value="<%= @user.password%>" ><br><br>
+        <input type="password" placehodler=""       name="password" value="<%= @user.password%>" required><br><br>
         <label for="password_confirmation"><b>もう一回パスワード</b></label>
-        <input type="password" placehodler="" name="password_confirmation" ><br><br>
+        <input type="password" placehodler="" name="password_confirmation" required><br><br>
         <label for="email"><b>新メールアドレス</b></label>
-        <input type="text" placeholder="" name="email" value="<%= @user.email %>"><br><br>
+        <input type="text" placeholder="" name="email" value="<%= @user.email %>" required><br><br>
         <label for="image"><b>プロフィール画像</b></label>
         <input type="file" name="image">
         <label for="submit"><b>更新</b></label>

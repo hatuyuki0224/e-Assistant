@@ -17,3 +17,9 @@
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 //= require_tree .
+
+$(function() {
+  $('.flash').fadeOut(2000);
+
+
+});

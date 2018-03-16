@@ -6,7 +6,6 @@ class HomeController < ApplicationController
   end
 
   def new
-    @user = User.new
   end
 
   def create
@@ -25,16 +24,11 @@ class HomeController < ApplicationController
         end
         flash[:notice] = "新規登録しました"
         redirect_to("/users/#{@user.id}")
-        else
-          render("home/new")
       end
 
 
 
       def login
-      end
-
-      def login_form
       end
 
     end

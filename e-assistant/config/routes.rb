@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post 'tasks/create' => 'tasks#create'
   resources :events
   post '/logout' => 'users#logout'
   get 'users/:id/edit_form' => 'users#edit_form'

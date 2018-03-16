@@ -1,24 +1,25 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="icon" href="img/logo.ico">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <title>
-            e-Assistant
-        </title>
-    </head>
-    <body>
-            <div class="title">e-Assistant</div>
-            <%= form_tag("/users/login") do %>
-            <div class="login-container">
-                <label for="uname"><b>ログイン名</b></label>
-                <input type="text" placeholder="" name="user_id" required><br><br>
-                <label for="password"><b>パスワード</b></label>
-                <input type="password" placehodler="" name="password" required><br><br>
-                <button type="submit">ログイン</button><br>
-                <label><input type="checkbox" checked="checked" name="remember">ログインしたままにする</label><br>
-                <span class="psw">Forgot <a href="#">Password</a></span>
-            </div>
-            <% end %>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/logo.ico">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>
+    e-Assistant
+  </title>
+</head>
+<body>
+  <div class="title">e-Assistant</div>
+  <div class="form-error"><%= @error_message %></div>
+  <%= form_tag("/users/login") do %>
+  <div class="login-container">
+    <label for="uname"><b>ログイン名</b></label>
+    <input type="text" placeholder="" name="user_id" required><br><br>
+    <label for="password"><b>パスワード</b></label>
+    <input type="password" placehodler="" name="password" required><br><br>
+    <button type="submit">ログイン</button><br>
+    <label><input type="checkbox" checked="checked" name="remember">ログインしたままにする</label><br>
+    <span class="psw">Forgot <a href="#">Password</a></span>
+  </div>
+  <% end %>
+</body>
 </html>
