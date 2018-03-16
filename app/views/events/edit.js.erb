@@ -1,0 +1,5 @@
+$('#id01').html("<%= j (render 'edit') %>");
+$('#id01').fadeIn(800);
+$('#id01').on('ajax:success', function() {
+  $('#id01').fadeOut(600);
+});

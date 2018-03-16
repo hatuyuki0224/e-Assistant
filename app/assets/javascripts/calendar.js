@@ -1,25 +1,37 @@
 $(document).ready(function() {
     var create = function(start, end) {
-        var title = window.prompt("title");
-        var data = {event: {title: title,
-                            start: start.format(),
+        var data = {event: {start: start.format(),
                             end: end.format(),
                             allDay: !start.hasTime()
                             }};
         $.ajax({
-            type: "POST",
-            url: "/events.json",
-            data: data,
-            success: function() {
-                calendar.fullCalendar('refetchEvents');
-            },
+            type: "GET",
+            url: "/events/new.js",
+            data: data
+        }).done(function() { 
+            $(document).ready();
+        });
+        $('#id01').on('ajax:success', function(event) {
+            calendar.fullCalendar('refetchEvents');
         });
         calendar.fullCalendar('unselect');
     };
 
     var update = function(event) {
-        var data = {event: {title: event.title,
-                            allDay: event.allDay,
+        $.ajax({
+            type: "GET",
+            url: `/events/${event.id}/edit.js`
+        }).done(function() {
+            $(document).ready();
+        });;
+        $('#id01').on('ajax:success', function(event) {
+            calendar.fullCalendar('refetchEvents');
+        });
+        calendar.fullCalendar('unselect');
+    };
+
+    var update_datetime = function(event) {
+        var data = {event: {allDay: event.allDay,
                             start: moment(event.start).format(),
                             end: moment(event.end).format()
                             }};
@@ -29,7 +41,7 @@ $(document).ready(function() {
             data: data,
             success: function() {
                 calendar.fullCalendar('refetchEvents');
-            },
+            }
         });
         calendar.fullCalendar('unselect');
     };
@@ -45,15 +57,8 @@ $(document).ready(function() {
         snapDuration: '00:05:00',
         ignoreTimezone: false,
         select: create,
-        eventDrop: update,
-        eventResize: update,
-        eventClick: function(calEvent, jsEvent, view) {
-            alert('Event: ' + calEvent.title);
-            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-            alert('View: ' + view.name);
-            // change the border color just for fun
-            $(this).css('border-color', 'red');
-            return false;
-        }
+        eventClick: update,
+        eventDrop: update_datetime,
+        eventResize: update_datetime
     });
 });
