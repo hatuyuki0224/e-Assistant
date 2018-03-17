@@ -13,8 +13,8 @@ $(document).ready(function() {
         });
         $('#id01').on('ajax:success', function(event) {
             calendar.fullCalendar('refetchEvents');
+            calendar.fullCalendar('unselect');
         });
-        calendar.fullCalendar('unselect');
     };
 
     var update = function(event) {
@@ -23,11 +23,10 @@ $(document).ready(function() {
             url: `/events/${event.id}/edit.js`
         }).done(function() {
             $(document).ready();
-        });;
+        });
         $('#id01').on('ajax:success', function(event) {
             calendar.fullCalendar('refetchEvents');
         });
-        calendar.fullCalendar('unselect');
     };
 
     var update_datetime = function(event) {
@@ -38,12 +37,10 @@ $(document).ready(function() {
         $.ajax({
             type: "PATCH",
             url: `/events/${event.id}.json`,
-            data: data,
-            success: function() {
-                calendar.fullCalendar('refetchEvents');
-            }
+            data: data
+        }).done(function() {
+            calendar.fullCalendar('refetchEvents');
         });
-        calendar.fullCalendar('unselect');
     };
 
     var calendar = $('#calendar').fullCalendar({

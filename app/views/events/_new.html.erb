@@ -1,3 +1,7 @@
 <span onclick="document.getElementById('id01').style.display='none'"
         class="close" title="Close Modal">&times;</span>
-<%= render 'form', event: @event %>
+<div class="modal-content animate">
+  <div class="container">
+    <%= render 'form', event: @event %>
+  </div>
+</div>
