@@ -55,6 +55,7 @@ $(document).ready(function() {
     events: '/events.json',
     lang: 'ja',
     defaultView: 'agendaWeek',
+    height: 'auto',
     nowIndicator: true,
     selectable: true,
     selectHelper: true,
