@@ -49,15 +49,14 @@
         <span onclick="document.getElementById('id01').style.display='none'"
         class="close" title="Close Modal">&times;</span>
         <!-- Modal Content -->
-        <%= form_tag("/tasks") do %>
-        <!-- <form class="modal-content animate" action="/action_page.php"> -->
+        <form class="modal-content animate" action="/action_page.php">
           <div class="container">
-
             <label for="task_name"><b>タスク名</b></label>
             <input type="text" placeholder="Enter task name" name="task_name" required>
 
-            <label for="deadline_time"><b>締め切り日時</b></label>
-            <input type="text" placeholder="Enter deadline" name="deadline_time" required>
+            <label for="deadline"><b>締め切り日時</b></label>
+            <input type="date" name="deadline_date" required>
+            <input type="time" name="deadline_time">
 
             <label for="required_time"><b>かかる時間</b></label>
             <input type="text" placeholder="Enter required time" name="required_time" required>
@@ -65,16 +64,27 @@
             <label for="priority"><b>優先度</b></label>
             <input type="text" placeholder=" ボタンに変更" name="priority" required>
 
+            <label for="color"><b>色</b></label>
+            <input type="color" id="task-color">
+
             <label for="comment"><b>コメント</b></label>
             <input type="text" placeholder="Enter comment" name="coment">
-            <input type="submit" value="追加">
 
+
+
+            <button type="submit">追加</button>
           </div>
-          <% end %>
         </form>
       </div>
     </div>
-    <div id="calendar">
+    <div class="calendar-container">
+      <div id="calendar"></div>
+      <div class="tooltip">
+        <div id="id01" class="modal"></div>
+      </div>
+
+    </div>
+    <br><br><br><br>
   </div>
 </body>
 </html>

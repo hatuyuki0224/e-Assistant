@@ -14,11 +14,19 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
-  end
+    @event = Event.new(event_params)
+    respond_to do |format|
+      format.html
+      format.js
+    end
+ end
 
   # GET /events/1/edit
   def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /events
@@ -30,9 +38,11 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.js { render :new }
       end
     end
   end
@@ -44,9 +54,11 @@ class EventsController < ApplicationController
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.js { render :edit }
       end
     end
   end
@@ -58,6 +70,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
@@ -68,7 +81,7 @@ class EventsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params　
-      params.require(:event).permit(:title, :start, :end, :color, :allDay, :user_task) #user_task
+    def event_params
+      params.require(:event).permit(:title, :start, :end, :color, :allDay)
     end
 end

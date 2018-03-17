@@ -19,7 +19,7 @@
 //= require_tree .
 
 $(function() {
-  $('.flash').fadeOut(2000);
+  $('.flash').fadeOut(3000);
 
 
 });

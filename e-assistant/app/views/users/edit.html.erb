@@ -14,7 +14,7 @@
     <%= link_to("e-Assistant", "/")%>
     <div class="userID">
       Welcome back,
-      <%= link_to("戻る", "/users/#{@user.id}")%>
+      <%= link_to("戻る", :back )%>
       <div class="tooltip">
         <a href="edit.html"><img src="/img/button-setting.png" alt="User setting" width="15" height="15"> <%= @user.user_id%>!</a>
         <div class="tooltiptext">
@@ -39,9 +39,7 @@
         <label for="password">*****</label><br><br>
         <label for="email"><b>メールアドレス</b></label><br>
         <label for="email"><%= @user.email%></label><br><br>
-      </div>
-      <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'user-info-edit')">Edit</button>
+        <button class="submit-button" onclick="openTab(event, 'user-info-edit')">編集</button><br><br>
       </div>
     </div>
 
@@ -63,12 +61,12 @@
         <label for="email"><b>新メールアドレス</b></label>
         <input type="text" placeholder="" name="email" value="<%= @user.email %>"required><br><br>
         <label for="image"><b>プロフィール画像</b></label>
-        <input type="file" name="image">
-        <label for="submit"><b>更新</b></label>
-        <input type="submit" value="更新">
+        <input type="file" name="image"><br><br>
+        <input class="submit-button" type="submit" value="更新">
+
       </div>
       <% end %>
-      <div class="tab">
+      <div class="hidden">
         <button class="tablinks" onclick="openTab(event, 'user-info')"　type=submit id="defaultOpen">更新</button>
       </div>
 
