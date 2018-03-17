@@ -134,7 +134,7 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-button, input[type=submit] {
+button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -144,10 +144,22 @@ button, input[type=submit] {
     width: 100%;
 }
 
-button:hover, input[type=submit]:hover {
+button:hover {
     opacity: 0.8;
 }
 
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+ input[type=submit]:hover {
+    opacity: 0.8;
+}
 button-top {
     background-color: #4CAF50;
     color: white;
