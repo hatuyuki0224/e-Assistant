@@ -18,19 +18,19 @@
 
   <div class="field">
     <%= form.label "開始日時" %>
-    <%= form.date_field :start, id: :event_start %>
-    <%= form.time_select :start, id: :event_start %>
+    <%= form.date_field :start, id: :event_start, required: true %>
+    <%= form.time_select :start, id: :event_start, required: true %>
   </div>
 
   <div class="field">
     <%= form.label "終了日時" %>
-    <%= form.date_field :end, id: :event_end %>
-    <%= form.time_select :end, id: :event_end %>
+    <%= form.date_field :end, id: :event_end, required: true %>
+    <%= form.time_select :end, id: :event_end, required: true %>
   </div>
 
   <div class="field">
     <%= form.label "色" %>
-    <%= form.text_field :color, id: :event_color %>
+    <%= form.select :color, [["Red", "red"], ["Orange", "orange"], ["Yellow", "yellow"], ["Green", "green"], ["Aqua", "aqua"], ["Blue", "blue"], ["Purple", "purple"]], include_blank: "指定なし", id: :event_color %>
   </div>
 
   <div class="field">
