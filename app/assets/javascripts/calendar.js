@@ -11,7 +11,7 @@ $(document).ready(function() {
         }).done(function() { 
             $(document).ready();
         });
-        $('#id01').on('ajax:success', function(event) {
+        $('#id02').on('ajax:success', function(event) {
             calendar.fullCalendar('refetchEvents');
             calendar.fullCalendar('unselect');
         });
@@ -24,7 +24,7 @@ $(document).ready(function() {
         }).done(function() {
             $(document).ready();
         });
-        $('#id01').on('ajax:success', function(event) {
+        $('#id02').on('ajax:success', function(event) {
             calendar.fullCalendar('refetchEvents');
         });
     };
