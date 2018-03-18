@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tasks
   post 'tasks/create' => 'tasks#create'
   resources :events
   post '/logout' => 'users#logout'

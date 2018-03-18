@@ -14,7 +14,7 @@
     <%= link_to("e-Assistant", "/")%>
     <div class="userID">
       Welcome back,
-      <%= link_to("戻る", :back )%>
+      <%= link_to("戻る", "/users/#{@user.id}" )%>
       <div class="tooltip">
         <a href="edit.html"><img src="/img/button-setting.png" alt="User setting" width="15" height="15"> <%= @user.user_id%>!</a>
         <div class="tooltiptext">
