@@ -1,5 +1,5 @@
-$('.tooltip').html("<%= j (render 'edit') %>");
+$('#calendar-form').html("<%= j (render 'edit') %>");
 $('#id02').fadeIn(400);
 $('#id02').on('ajax:success', function() {
-    $('.tooltip').empty();
+    $('#calendar-form').html('');
 });
