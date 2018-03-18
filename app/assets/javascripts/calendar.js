@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function eventCalendar() {
     var create = function(start, end) {
         var data = {event: {start: start.format(),
                             end: end.format(),
@@ -8,8 +8,6 @@ $(document).ready(function() {
             type: "GET",
             url: "/events/new.js",
             data: data
-        }).done(function() { 
-            $(document).ready();
         });
         $('#id02').on('ajax:success', function(event) {
             calendar.fullCalendar('refetchEvents');
@@ -21,8 +19,6 @@ $(document).ready(function() {
         $.ajax({
             type: "GET",
             url: `/events/${event.id}/edit.js`
-        }).done(function() {
-            $(document).ready();
         });
         $('#id02').on('ajax:success', function(event) {
             calendar.fullCalendar('refetchEvents');
@@ -36,14 +32,14 @@ $(document).ready(function() {
                             }};
         $.ajax({
             type: "PATCH",
-            url: `/events/${event.id}.js`,
+            url: `/events/${event.id}.json`,
             data: data
         }).done(function() {
             calendar.fullCalendar('refetchEvents');
         });
     };
 
-    var calendar = $('#calendar').fullCalendar({
+    var calendar = $('#event_calendar').fullCalendar({
         events: '/events.json',
         lang: 'ja',
         defaultView: 'agendaWeek',
@@ -58,4 +54,12 @@ $(document).ready(function() {
         eventDrop: update_datetime,
         eventResize: update_datetime
     });
-});
+
+    return calendar;
+};
+function clearCalendar() {
+  $('#event_calendar').fullCalendar('delete'); // In case delete doesn't work.
+  $('#event_calendar').html('');
+};
+$(document).on('turbolinks:load', eventCalendar);
+$(document).on('turbolinks:before-cache', clearCalendar)
