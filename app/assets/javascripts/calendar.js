@@ -36,7 +36,7 @@ $(document).ready(function() {
                             }};
         $.ajax({
             type: "PATCH",
-            url: `/events/${event.id}.json`,
+            url: `/events/${event.id}.js`,
             data: data
         }).done(function() {
             calendar.fullCalendar('refetchEvents');
