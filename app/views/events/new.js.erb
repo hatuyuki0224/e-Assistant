@@ -1,5 +1,5 @@
 $('.tooltip').html("<%= j (render 'new') %>");
 $('#id02').fadeIn(400);
 $('#id02').on('ajax:success', function() {
-  $('#id02').fadeOut(400);
+    $('.tooltip').empty();
 });

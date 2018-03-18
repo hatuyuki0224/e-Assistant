@@ -8,10 +8,11 @@ function eventCalendar() {
             type: "GET",
             url: "/events/new.js",
             data: data
-        });
-        $('#id02').on('ajax:success', function(event) {
-            calendar.fullCalendar('refetchEvents');
-            calendar.fullCalendar('unselect');
+        }).done(function() {
+            $(document).on('ajax:success', '#id02', function() {
+                calendar.fullCalendar('refetchEvents');
+                calendar.fullCalendar('unselect');
+            });
         });
     };
 
@@ -19,9 +20,10 @@ function eventCalendar() {
         $.ajax({
             type: "GET",
             url: `/events/${event.id}/edit.js`
-        });
-        $('#id02').on('ajax:success', function(event) {
-            calendar.fullCalendar('refetchEvents');
+        }).done(function() {
+            $(document).on('ajax:success', '#id02', function() {
+                calendar.fullCalendar('refetchEvents');
+            });
         });
     };
 
