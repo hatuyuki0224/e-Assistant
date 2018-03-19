@@ -11,7 +11,7 @@ function eventCalendar() {
       type: "GET",
       url: "/events/new.js",
       data: data
-    }).done(function () {
+    }).then(function () {
       $(document).on('ajax:success', '#id02', function () {
         calendar.fullCalendar('refetchEvents');
         calendar.fullCalendar('unselect');
@@ -23,7 +23,7 @@ function eventCalendar() {
     $.ajax({
       type: "GET",
       url: `/events/${event.id}/edit.js`
-    }).done(function () {
+    }).then(function () {
       $(document).on('ajax:success', '#id02', function () {
         calendar.fullCalendar('refetchEvents');
       });
@@ -42,7 +42,7 @@ function eventCalendar() {
       type: "PATCH",
       url: `/events/${event.id}.json`,
       data: data
-    }).done(function () {
+    }).then(function () {
       calendar.fullCalendar('refetchEvents');
     });
   };
