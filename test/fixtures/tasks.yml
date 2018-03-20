@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_name: MyString
+  deadline_date: 2018-03-18
+  deadline_time: 2018-03-18 00:34:47
+  required_time: 2018-03-18 00:34:47
+  priority: 1
+  color: MyString
+  comment: MyText
+
+two:
+  task_name: MyString
+  deadline_date: 2018-03-18
+  deadline_time: 2018-03-18 00:34:47
+  required_time: 2018-03-18 00:34:47
+  priority: 1
+  color: MyString
+  comment: MyText

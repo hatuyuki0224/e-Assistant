@@ -1,0 +1,77 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/img/logo.ico">
+  <link rel="stylesheet" type="text/css" href="application.css">
+  <title>
+    e-Assistant
+  </title>
+
+</head>
+<body>
+  <div class="top-bar">
+    <%= link_to("e-Assistant", "/")%>
+    <div class="userID">
+      Welcome back,
+      <%= link_to("戻る", "/users/#{@user.id}")%>
+      <div class="tooltip">
+        <a href="edit.html"><img src="/img/button-setting.png" alt="User setting" width="15" height="15"> <%= @user.user_id%>!</a>
+        <div class="tooltiptext">
+          Edit account
+        </div>
+      </div>
+      (<a href="/">Logout</a>)
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div id="user-info-edit" >
+      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+      <div class="info-container">
+        <!-- <button>Upload new photo</button> -->
+        <% @user.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+        <% end %>
+        <label for="user_id"><b>新ログイン名</b></label>
+        <input type="text" placeholder=""   name="user_id" value= "<%= @user.user_id%>" required><br><br>
+        <label for="password"><b>新パスワード</b></label>
+        <input type="password" placehodler=""       name="password" value="<%= @user.password%>" required><br><br>
+        <label for="password_confirmation"><b>もう一回パスワード</b></label>
+        <input type="password" placehodler="" name="password_confirmation" required><br><br>
+        <label for="email"><b>新メールアドレス</b></label>
+        <input type="text" placeholder="" name="email" value="<%= @user.email %>"required><br><br>
+        <label for="image"><b>プロフィール画像</b></label>
+        <input type="file" name="image"><br><br>
+        <input class="submit-button" type="submit" value="更新">
+
+      </div>
+      <% end %>
+      <div class="hidden">
+        <button class="tablinks" onclick="openTab(event, 'user-info')"　type=submit id="defaultOpen">更新</button>
+      </div>
+
+    </div>
+  </div>
+  <script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display =   "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  </script>
+</body>
+</html>

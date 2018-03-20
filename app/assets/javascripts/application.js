@@ -13,7 +13,13 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require moment 
+//= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 //= require_tree .
+
+$(function() {
+  $('.flash').fadeOut(3000);
+
+
+});

@@ -1,0 +1,36 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/logo.ico">
+  <link rel="stylesheet" type="text/css" href="application.css">
+  <title>
+    e-Assistant
+  </title>
+</head>
+<body>
+  <div class="title">e-Assistant</div>
+  <div class="subtitle">新規登録</div>
+
+  <%= form_tag("/home/create", {multipart: true}) do %>
+  <div class="login-container">
+    <% @user.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+    <% end %>
+    <label for="user_id"><b>新ログイン名</b></label>
+    <input type="text" placeholder="" name="user_id" value="<%= @user.user_id%>"required><br><br>
+    <label for="password"><b>新パスワード</b></label>
+    <input type="password" placehodler="" name="password" value="<%= @user.password%>"required><br><br>
+    <label for="password_confirmation"><b>もう一回パスワード</b></label>
+    <input type="password" placehodler="" name="password_confirmation" required><br><br>
+    <label for="email"><b>メールアドレス</b></label>
+    <input type="text" placeholder="" name="email" value="<%= @user.email%>"required><br><br>
+    <label for="image"><b>プロフィール画像</b></label>
+    <input type="file" name="image">
+    <button type="submit">送信</button>
+  </div>
+  <% end %>
+</body>
+</html>
