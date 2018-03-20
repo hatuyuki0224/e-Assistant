@@ -1,5 +1,5 @@
 $('#calendar-form').html("<%= j (render 'edit') %>");
-$('#id02').fadeIn(400);
+$('#id02').show();
 $('#id02').on('ajax:success', function() {
     $('#calendar-form').html('');
 });
