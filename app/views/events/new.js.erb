@@ -1,9 +1,9 @@
 $('#form-container').html("<%= j (render 'new') %>");
-$('#id01').show();
+$('#id02').show();
 $('#form-container').on('ajax:success', function() {
-	$('#id01').hide();
+	$('#id02').hide();
     $('#form-container').html('');
 });
-$('#id01-close').click(function() {
+$('#id02-close').click(function() {
     $('#form-container').html('');
 });

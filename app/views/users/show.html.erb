@@ -78,11 +78,14 @@
       </div>
     </div>
     <div class="calendar-container">
-      <div id="calendar"></div>
-      <div class="tooltip">
-        <div id="id01" class="modal"></div>
+      <div id="event_calendar"></div>
+      <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'"
+        class="close" id="id02-close" title="Close Modal">&times;</span>
+        <div class="modal-content animate">
+          <div id="form-container" class="container"></div>
+        </div>
       </div>
-
     </div>
     <br><br><br><br>
   </div>
