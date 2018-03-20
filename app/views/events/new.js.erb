@@ -1,5 +1,9 @@
-$('#calendar-form').html("<%= j (render 'new') %>");
-$('#id02').show();
-$('#id02').on('ajax:success', function() {
-    $('#calendar-form').html('');
+$('#form-container').html("<%= j (render 'new') %>");
+$('#id01').show();
+$('#form-container').on('ajax:success', function() {
+	$('#id01').hide();
+    $('#form-container').html('');
+});
+$('#id01-close').click(function() {
+    $('#form-container').html('');
 });

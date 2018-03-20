@@ -12,7 +12,7 @@ function eventCalendar() {
       url: "/events/new.js",
       data: data
     }).then(function () {
-      $(document).on('ajax:success', '#id02', function () {
+      $('#form-container').on('ajax:success', function () {
         calendar.fullCalendar('refetchEvents');
         calendar.fullCalendar('unselect');
       });
@@ -24,7 +24,7 @@ function eventCalendar() {
       type: "GET",
       url: `/events/${event.id}/edit.js`
     }).then(function () {
-      $(document).on('ajax:success', '#id02', function () {
+      $('#form-container').on('ajax:success', function () {
         calendar.fullCalendar('refetchEvents');
       });
     });
