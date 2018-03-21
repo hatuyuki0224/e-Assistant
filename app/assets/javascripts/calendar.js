@@ -47,7 +47,7 @@ function eventCalendar() {
     });
   };
 
-  var calendar = $('#event_calendar').fullCalendar({
+  var calendar = $('#calendar').fullCalendar({
     events: '/events.json',
     locale: 'ja',
     defaultView: 'agendaWeek',
@@ -66,8 +66,8 @@ function eventCalendar() {
   return calendar;
 };
 function clearCalendar() {
-  $('#event_calendar').fullCalendar('delete'); // In case delete doesn't work.
-  $('#event_calendar').html('');
+  $('#calendar').fullCalendar('delete'); // In case delete doesn't work.
+  $('#calendar').html('');
 };
 $(document).on('turbolinks:load', eventCalendar);
 $(document).on('turbolinks:before-cache', clearCalendar)
