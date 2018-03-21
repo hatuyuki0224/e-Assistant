@@ -49,7 +49,7 @@ function eventCalendar() {
 
   var calendar = $('#event_calendar').fullCalendar({
     events: '/events.json',
-    lang: 'ja',
+    locale: 'ja',
     defaultView: 'agendaWeek',
     nowIndicator: true,
     selectable: true,
