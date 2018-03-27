@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20180326062235) do
     t.boolean "allDay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_event"
     t.integer "user_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -35,23 +34,16 @@ ActiveRecord::Schema.define(version: 20180326062235) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.string "hoge"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_tests_on_user_id"
+    t.string "task_user"
   end
 
   create_table "users", force: :cascade do |t|
     t.text "user_id"
-    t.text "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "user_image"
+    t.string "password_digest"
   end
 
 end

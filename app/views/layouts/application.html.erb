@@ -10,10 +10,17 @@
 
 <body>
   <% if flash[:notice] %>
-  <div class="flash">
-    <%= flash[:notice] %>
+  <div id="fadeout" class="flash">
+    <%= flash[:notice]%>
   </div>
   <% end %>
   <%= yield %>
 </body>
 </html>
+
+<script type="text/javascript">
+$(function() {
+  $('.flash').fadeOut(2500);
+
+});
+</script>

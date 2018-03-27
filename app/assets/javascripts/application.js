@@ -16,10 +16,10 @@
 //= require lib/moment.min
 //= require fullcalendar.min
 //= require locale/ja
+//= require jquery-tablesorter
 //= require_tree .
 
 $(function() {
   $('.flash').fadeOut(3000);
-
 
 });

@@ -47,14 +47,22 @@ function eventCalendar() {
     });
   };
 
+
   var calendar = $('#calendar').fullCalendar({
+    header: {
+      left: 'today,prev,next',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
     events: '/events.json',
     locale: 'ja',
     defaultView: 'agendaWeek',
+    height: 'auto',
     nowIndicator: true,
     selectable: true,
     selectHelper: true,
     editable: true,
+    eventOverlap: false,
     snapDuration: '00:05:00',
     ignoreTimezone: false,
     select: create,

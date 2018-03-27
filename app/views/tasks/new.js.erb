@@ -1,0 +1,5 @@
+$('#task-form').html("<%= j (render 'new') %>");
+$('#id05').fadeIn(400);
+$('#id05').on('ajax:success', function() {
+  $('#task-form').html('');
+});

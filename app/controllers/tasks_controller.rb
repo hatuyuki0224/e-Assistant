@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    @tasks.order(:task_name)
   end
 
   # GET /tasks/1
@@ -15,6 +16,10 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /tasks/1/edit
@@ -25,14 +30,18 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
+    @task.task_user = @current_user.id
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: '新しいタスクを作りました' }
+        flash[:notice] = "新しいタスクを追加しました"
+        format.html { redirect_to @task}
         format.json { render :show, status: :created, location: @task }
+        format.js
+        redirect_to("/tasks")
       else
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -42,11 +51,15 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'タスクを編集しました' }
+        flash[:notice] = "タスクを編集しました"
+        format.html { redirect_to @task }
         format.json { render :show, status: :ok, location: @task }
+        format.js
+        redirect_to("/tasks")
       else
         format.html { render :edit }
         format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -56,9 +69,23 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'タスクを削除しました' }
+      flash[:notice] = "タスクを削除しました"
+      format.html { redirect_to tasks_url }
       format.json { head :no_content }
     end
+  end
+
+  def putTask
+    event = Task.find(params[:id])
+    event.title = @task.task_name
+    event.color = @task.color
+    if event.save
+      redirect_to("/users/#{@current_user.id}")
+    else
+      render("/")
+    end
+
+
   end
 
   private

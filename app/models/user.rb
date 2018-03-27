@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   validates :user_id, presence: true, uniqueness: {message: "：このログイン名はすでに存在します"}
   validates :password,
     presence: true,

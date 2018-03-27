@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :forbid_login_user, {only: [:new, :create]}
+  before_action :forbid_login_user, {only: [:new, :create, :login]}
   def top
     @user = User.find_by(user_id: params[:user_id])
 

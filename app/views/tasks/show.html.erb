@@ -23,11 +23,6 @@
   <%= @task.priority %>
 </p>
 
-<!-- <p>　なくていいと思う
-  <strong>色:</strong>
-  <%= @task.color %>
-</p> -->
-
 <p>
   <strong>コメント:</strong>
   <%= @task.comment %>
@@ -35,3 +30,4 @@
 
 <%= link_to '編集', edit_task_path(@task) %> |
 <%= link_to '戻る', tasks_path %>
+<%= link_to('イベントの追加', "/tasks/putTask", {mothod: :post})%>

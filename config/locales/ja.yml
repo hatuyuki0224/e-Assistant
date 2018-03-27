@@ -1,33 +1,17 @@
-# ja:
-#   activerecord:
-#     attributes:
-#       user:
-#         user_id: "ログイン名"
-#         email: "メールアドレス"
-#         password: "パスワード"
-#         password_confirmation: "パスワード"
-
 ja:
   activerecord:
     attributes:
       user:
-        email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード
-        user_id: ログイン名
-
-  activerecord:
-    attributes:
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード"
+        user_id: "ログイン名"
       event:
         title: "予定名"
         start:  "開始時刻"
         end: "終了時刻"
         color: "色"
         allDay: "終日"
-
-
-  activerecord:
-    attributes:
       task:
         task_name: "タスク名"
         deadline_date: "締切日時"
@@ -35,4 +19,3 @@ ja:
         priority: "優先度"
         color: "色"
         comment: "コメント"
-  
