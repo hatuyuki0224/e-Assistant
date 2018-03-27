@@ -1,0 +1,19 @@
+current directory: /root/e-Assistant/e-Assistant/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.1/ext/byebug
+/root/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180327-2018-2iccbl.rb extconf.rb
+creating Makefile
+
+current directory: /root/e-Assistant/e-Assistant/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /root/e-Assistant/e-Assistant/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /root/e-Assistant/e-Assistant/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20180327-2018-5hsty2/byebug
