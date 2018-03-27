@@ -66,7 +66,7 @@ function eventCalendar() {
   return calendar;
 };
 function clearCalendar() {
-  $('#calendar').fullCalendar('delete'); // In case delete doesn't work.
+  $('#calendar').fullCalendar('destroy'); // In case delete doesn't work.
   $('#calendar').html('');
 };
 $(document).on('turbolinks:load', eventCalendar);
