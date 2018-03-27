@@ -1,11 +1,7 @@
 /*
-<<<<<<< HEAD:app/assets/stylesheets/application.css
 *= require fullcalendar.min
-=======
-*= require fullcalendar
 *= require jquery-tablesorter/theme.green
 *= require jquery-tablesorter/addons/pager/jquery.tablesorter.pager
->>>>>>> 84adc9c:app/assets/stylesheets/application.css
 *= require_tree .
 *= require_self
 */
