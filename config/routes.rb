@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :events
   post '/logout' => 'users#logout'
   get 'users/:id/edit_form' => 'users#edit_form'
-  get 'calendar/index'
   post 'users/:id/update' => 'users#update'
   get 'users/:id/edit' => 'users#edit'
   post 'users/login' => 'users#login'
