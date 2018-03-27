@@ -1,0 +1,57 @@
+
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/logo.ico">
+  <link rel="stylesheet" type="text/css" href="application.css">
+  <title>
+    e-Assistant
+  </title>
+</head>
+<body>
+  <div class="top-bar">
+    <%= link_to("e-Assistant", "/")%>
+    <div class="userID">
+      <%= link_to("タスク一覧", "/tasks")%>
+      Welcome back,
+      <div class="tooltip">
+        <a href="<%= "/users/#{@user.id}/edit"%>"><img src="/img/button-setting.png" alt="User setting" width="15" height="15"><%= @user.user_id%>!</a>
+        <div class="tooltiptext">
+          Edit account
+        </div>
+      </div>
+      <%= link_to("Logout", "/logout", {method: :post})%>
+    </div>
+  </div>
+  <div class="main-container">
+    <% if @user.user_image %>
+    <img class="circle" id="user_img" src="<%= "/img/#{@user.id}.jpg"%>" >
+    <% else %>
+    <img class="circle" id="user_img" src="/img/user.png">
+    <% end %>
+
+    <div class="square">
+      現在のタスクは「タスク名」です。<br>
+      残り時間：... <br>
+      <%= @user.user_id%>さん、頑張ってください！
+    </div>
+    <div class="calendar-container">
+      今日のスケジュール
+    </div>
+    <div class="tooltip">
+      <button onclick="document.getElementById('id05').style.display='block'"><%= link_to 'タスク追加', new_task_path, remote: true %></button>
+      <div id="task-form" ></div>
+      <!-- Modal -->
+
+    </div>
+    <div class="calendar-container">
+      <div id="event_calendar"></div>
+      <div id="calendar-form"></div>
+
+
+    </div>
+    <br><br><br><br>
+  </div>
+</body>
+</html>

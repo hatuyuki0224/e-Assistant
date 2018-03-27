@@ -1,0 +1,95 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/img/logo.ico">
+  <link rel="stylesheet" type="text/css" href="application.css">
+  <title>
+    e-Assistant
+  </title>
+
+</head>
+<body>
+  <div class="top-bar">
+    <%= link_to("e-Assistant", "/")%>
+    <div class="userID">
+      Welcome back,
+      <%= link_to("戻る", "/users/#{@current_user.id}" )%>
+      <div class="tooltip">
+        <a href="edit.html"><img src="/img/button-setting.png" alt="User setting" width="15" height="15"> <%= @current_user.user_id%>!</a>
+        <div class="tooltiptext">
+          Edit account
+        </div>
+      </div>
+      <%= link_to("Logout", "/logout", {method: :post})%>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div id="user-info" class="tabcontent">
+      <div class="info-container">
+        <% if @user.user_image %>
+        <img class="circle" id="user_img" src="<%= "/img/#{@user.id}.jpg"%>" ><br><br><br><br><br>
+        <% else %>
+        <img class="circle" id="user_img" src="/img/user.png"><br><br><br><br><br>
+        <% end %>
+        <label for="user_id"><b>ログイン名</b></label><br>
+        <label for="user_id"><%= @user.user_id%></label><br><br>
+        <label for="password"><b>パスワード</b></label><br>
+        <label for="password">*****</label><br><br>
+        <label for="email"><b>メールアドレス</b></label><br>
+        <label for="email"><%= @user.email%></label><br><br>
+        <button class="submit-button" onclick="openTab(event, 'user-info-edit')">編集</button><br><br>
+      </div>
+    </div>
+
+    <div id="user-info-edit" class="tabcontent">
+      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+      <div class="info-container">
+        <!-- <button>Upload new photo</button> -->
+        <% @user.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+        <% end %>
+        <label for="user_id"><b>新ログイン名</b></label>
+        <input type="text" placeholder=""   name="user_id" value= "<%= @user.user_id%>" required><br><br>
+        <label for="password"><b>新パスワード</b></label>
+        <input type="password" placehodler=""       name="password" value="<%= @user.password%>" required><br><br>
+        <label for="password_confirmation"><b>もう一回パスワード</b></label>
+        <input type="password" placehodler="" name="password_confirmation" required><br><br>
+        <label for="email"><b>新メールアドレス</b></label>
+        <input type="text" placeholder="" name="email" value="<%= @user.email %>"required><br><br>
+        <label for="image"><b>プロフィール画像</b></label>
+        <input type="file" name="image"><br><br>
+        <input class="submit-button" type="submit" value="更新">
+
+      </div>
+      <% end %>
+      <div class="hidden">
+        <button class="tablinks" onclick="openTab(event, 'user-info')"　type=submit id="defaultOpen">更新</button>
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display =   "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  </script>
+</body>
+</html>

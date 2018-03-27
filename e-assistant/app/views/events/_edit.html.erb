@@ -1,4 +1,0 @@
-<span onclick="document.getElementById('id01').style.display='none'"
-        class="close" title="Close Modal">&times;</span>
-<%= render 'form', event: @event %>
-<%= button_to "削除", { :action => "destroy", :id => @event.id }, method: :delete, remote: true %>

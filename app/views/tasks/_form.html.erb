@@ -1,0 +1,49 @@
+<%= form_with(model: task, local: true, data: {remote: true}) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container">
+  <div class="field">
+    <%= form.label :task_name %>
+    <%= form.text_field :task_name, id: :task_task_name, placeholder: "Enter the task name", required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deadline_date %>
+    <%= form.date_field :deadline_date, id: :task_deadline_date, value: Date.today, required: false %>
+    <%= form.time_select :deadline_time, {minute_step: 5}, id: :task_deadline_time, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :required_time %>
+    <%= form.time_select :required_time, {minute_step: 5, :default => {:hour => '0', :minute => '0'}},  id: :task_required_time, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.select :priority, options_for_select(1..10), { autofocus: 'true', class: 'form-control'}, id: :task_priority %>
+  </div>
+
+  <div class="field" id="task-color">
+    <%= form.label :color %>
+    <%= form.select :color, [["Red", "red"], ["Orange", "orange"], ["Yellow", "yellow"], ["Green", "green"], ["Aqua", "aqua"], ["Blue", "blue"], ["Purple", "purple"]], id: :event_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, id: :task_comment, :size => "30x10", :maxlength => "500" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+</div>
+<% end %>
