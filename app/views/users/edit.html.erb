@@ -2,37 +2,40 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="/img/logo.ico">
+  <link rel="icon" href="/img/logo.png">
   <link rel="stylesheet" type="text/css" href="application.css">
+  <script type="text/javascript" src="application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
     e-Assistant
   </title>
-
 </head>
 <body>
+
+  <!-- <a href="#" class="add">Scroll To Top</a> -->
+
+  <div class="bgline"></div>
   <div class="top-bar">
-    <%= link_to("e-Assistant", "/")%>
-    <div class="userID">
-      Welcome back,
-      <%= link_to("戻る", "/users/#{@current_user.id}" )%>
-      <div class="tooltip">
-        <a href="edit.html"><img src="/img/button-setting.png" alt="User setting" width="15" height="15"> <%= @current_user.user_id%>!</a>
-        <div class="tooltiptext">
-          Edit account
-        </div>
+    Welcome back, <%= @user.user_id %>!
+    <div class="dropdown">
+      <div onclick="dropdownfunction()" class="arrow-down" tabindex="2"></div>
+      <div id="myDropdown" class="dropdown-content">
+        <%= link_to("タスク一覧", "/tasks")%>
+        <%= link_to("プロフィール", "/users/#{@user.id}/edit")%>
+        <%= link_to("ログアウト", "/logout", {method: :post})%>
       </div>
-      <%= link_to("Logout", "/logout", {method: :post})%>
     </div>
   </div>
-
+  <a href="<%= "/users/#{@current_user.id}" %>"><img class="logo" src="/img/logo-circle.png"></a>
   <div class="main-container">
     <div id="user-info" class="tabcontent">
+      <% if @user.user_image %>
+      <img class="circle" id="user_img" src="<%= "/img/#{@user.id}.jpg"%>" >
+      <% else %>
+      <img class="circle" id="user_img" src="/img/user.png">
+      <% end %>
       <div class="info-container">
-        <% if @user.user_image %>
-        <img class="circle" id="user_img" src="<%= "/img/#{@user.id}.jpg"%>" ><br><br><br><br><br>
-        <% else %>
-        <img class="circle" id="user_img" src="/img/user.png"><br><br><br><br><br>
-        <% end %>
+
         <label for="user_id"><b>ログイン名</b></label><br>
         <label for="user_id"><%= @user.user_id%></label><br><br>
         <label for="password"><b>パスワード</b></label><br>

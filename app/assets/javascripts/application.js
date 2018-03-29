@@ -23,3 +23,39 @@ $(function() {
   $('.flash').fadeOut(3000);
 
 });
+
+function dropdownfunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.arrow-down')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for(i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+$(document).ready(function(){
+
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 500) {
+			$('?').fadeIn();
+		} else {
+			$('?').fadeOut();
+		}
+	});
+
+	//Click event to scroll to top
+	$('.add').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+
+});

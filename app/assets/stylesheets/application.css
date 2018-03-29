@@ -10,8 +10,18 @@ body, html {
   height: 100%;
   margin: 0;
   font: 100 16px/1.5 "Arial";
-  color: #777;
+  background: repeating-linear-gradient(
+    135deg,
+    #b90000,
+    #b90000 10px,
+    #c42f2f 10px,
+    #c42f2f 20px
+  );
+  background-repeat: no-repeat;
+}
 
+h1 {
+  text-align: center;
 }
 
 .navigation {
@@ -179,31 +189,17 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
+  max-width: 200px;
 }
 
-button:hover {
-  opacity: 0.8;
-}
+button:hover, input[type=submit]:hover {
 
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-input[type=submit]:hover {
-  opacity: 0.8;
 }
 
 button-top {
-  background-color: #4CAF50;
+  background-color: black;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -267,15 +263,32 @@ span.psw {
 
 /*追加分 3/12*/
 .top-bar {
-  position: relative;
-  text-align: left;
-  width: 92%;
+  text-align: center;
+  position: fixed;
+  z-index: 49;
+  border-radius: 0 0 0 10px;
+  max-width: 32%;
+  right: 0;
   font-size: 16px;
   font-family: "Arial";
   font-weight: 300;
-  background: yellow;
-  padding: 3% 3% 3% 5%;
-  color: black;
+  background: black;
+  padding: 3% 3% 3% 3%;
+  color: white;
+  cursor: pointer;
+}
+
+.top-bar-shadow {
+  content: '';
+  position: absolute;
+  border-radius: 0 0 0 10px;
+  width: 100%;
+  height:10%;
+  top: 0;
+  right: 0;
+  background: white;
+  /* padding: 3% 3% 3% 3%; */
+  cursor: pointer;
 }
 
 .userID {
@@ -284,23 +297,18 @@ span.psw {
   padding-right: 10%;
 }
 
-.main-container {
-  position: relative;
-  width: 90%;
-  margin: auto;
-  padding-top:5%;
-}
-
 .circle {
+  position: static;
+  display: block;
+  width: 50%;
+  max-width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  padding: 5px;
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  position: absolute; /*fixedからabsoluteに変更*/
-  float: left;
-  color: whitesmoke;
-  text-align: center;
-  font-size: 50px;
-  font-family: "Times New Roman";
+  border: 5px solid white;
+  background: black;
 }
 
 .square {
@@ -330,8 +338,28 @@ span.psw {
 }
 
 .tooltip {
+  display: block;
   position: relative;
-  display: inline-block;
+  top: 135px;
+  width: 10%;
+  min-width: 100px;
+  text-align: center;
+  border: 5px solid black;
+  background-color: black;
+  border-radius: 0 0 10px 10px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1000;
+}
+
+.tooltip a {
+  text-decoration: none;
+  color: white;
+}
+
+.tooltip:hover a {
+  color: #b90000;
+  font-weight: bold;
 }
 
 .tooltip .tooltiptext {
@@ -346,7 +374,7 @@ span.psw {
   padding: 5px 0;
   border-radius: 6px;
   position: absolute;
-  z-index: 1;
+  z-index: 1000;
 
 }
 
@@ -365,12 +393,16 @@ span.psw {
   border-color: transparent transparent black transparent;
 }
 
-.calendar-container {
+
+.main-container {
   position: relative;
   width: 90%;
+  min-height: 90%;
   margin: auto;
-  padding-top: 5%;
-
+  top: 100px;
+  padding: 5% 5% 0% 5%;
+  background: white;
+  border-top: 5px solid black;
 }
 
 .add-button {
@@ -387,15 +419,16 @@ span.psw {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 100; /* Sit on top */
+  z-index: 1000; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
   padding-top: 60px;
+  color: black;
 }
 
 /* Modal Content/Box */
@@ -404,19 +437,21 @@ span.psw {
   margin: 5px auto; /* 15% from the top and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+  z-index: 100;
+  text-align: left;
 }
 @media (max-width: 450px) {
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
+    z-index: 1000; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
     padding-top: 30px;
   }
 
@@ -427,7 +462,7 @@ span.psw {
   position: absolute;
   right: 25px;
   top: 0;
-  color: #000;
+  color: #b90000;
   font-size: 35px;
   font-weight: bold;
 }
@@ -500,17 +535,16 @@ span.psw {
   position: relative;
   width: 60%;
   margin: auto;
-  padding-top:5%;
   text-align: left;
 }
 
 .submit-button {
-  background: #0099ff;
-  background-image: -webkit-linear-gradient(top, #0099ff, #2469b3);
-  background-image: -moz-linear-gradient(top, #0099ff, #2469b3);
-  background-image: -ms-linear-gradient(top, #0099ff, #2469b3);
-  background-image: -o-linear-gradient(top, #0099ff, #2469b3);
-  background-image: linear-gradient(to bottom, #0099ff, #2469b3);
+  background: #b90000;
+  background-image: -webkit-linear-gradient(top, #c42f2f, #b90000);
+  background-image: -moz-linear-gradient(top, #c42f2f, #b90000);
+  background-image: -ms-linear-gradient(top, #c42f2f, #b90000);
+  background-image: -o-linear-gradient(top, #c42f2f, #b90000);
+  background-image: linear-gradient(to bottom, #c42f2f, #b90000);
   -webkit-border-radius: 8;
   -moz-border-radius: 8;
   border-radius: 8px;
@@ -525,12 +559,12 @@ span.psw {
 }
 
 .submit-button:hover {
-  background: #75b8ff;
-  background-image: -webkit-linear-gradient(top, #75b8ff, #0099ff);
-  background-image: -moz-linear-gradient(top, #75b8ff, #0099ff);
-  background-image: -ms-linear-gradient(top, #75b8ff, #0099ff);
-  background-image: -o-linear-gradient(top, #75b8ff, #0099ff);
-  background-image: linear-gradient(to bottom, #75b8ff, #0099ff);
+  background: #c42f2f;
+  background-image: -webkit-linear-gradient(top, #b90000, #c42f2f);
+  background-image: -moz-linear-gradient(top, #b90000, #c42f2f);
+  background-image: -ms-linear-gradient(top, #b90000, #c42f2f);
+  background-image: -o-linear-gradient(top, #b90000, #c42f2f);
+  background-image: linear-gradient(to bottom, #b90000, #c42f2f);
   text-decoration: none;
 }
 
@@ -550,7 +584,167 @@ table#tsk tr th, table#tsk tr td {
   font-size:12px;
   border-bottom:1px solid #ccc;
   border-right:1px solid #ccc;
+  border-left:1px solid #ccc;
   padding: 3px
 }
+
+table#tsk th {
+  color: white;
+  font-weight: normal;
+  background-color: black;
+}
+
+table#tsk a {
+  text-decoration: none;
+  color: #b90000;
+}
+
+table#tsk a:hover {
+  text-decoration: underline;
+  background-color: white;
+}
+
+.bgline {
+  content:"";
+  display: block;
+  position: absolute;
+  margin: auto;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 50%;
+  border-left: 5px solid black;
+  transform: translate(-50%);
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f1f1f1;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+   right: -30px;
+   top: 20px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+.arrow-down {
+  position: relative;
+  left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #b90000;
+  outline: 0;
+  background-repeat: repeat-y;
+}
+
+.arrow-down:hover, .arrow-down:focus {
+  border-top-color: white;
+}
+
+.top-bar-shadow:hover .arrow-down {
+  border-top-color: white;
+}
+
+.logo {
+  display: block;
+  position: relative;
+  width: 10%;
+  max-width: 100px;
+  min-width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 8%;
+  padding: 10px;
+  background: white;
+  border-radius: 50%;
+  border: 5px black solid;
+}
+
+.add{
+  width: 100px;
+	padding: 10px;
+	text-align: center;
+	background: black;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	position: fixed;
+	display: none;
+  z-index: 100;
+  left: 50%;
+  right: 50%;
+}
+
+.sidenav {
+  width: 0;
+  max-width: 300px;
+  height: 100%;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  right: 0;
+  background-color: black;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    background-color: transparent;
+}
+
+#main {
+    transition: margin-right .5s;
+}
+
+@media screen and (max-height: 100px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
 /* table#tsk thead tr {background: #0FF}
 table#tsk tbody tr {background: #f1f8ff} */

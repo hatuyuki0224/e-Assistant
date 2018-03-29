@@ -75,19 +75,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def putTask
-    event = Task.find(params[:id])
-    event.title = @task.task_name
-    event.color = @task.color
-    if event.save
-      redirect_to("/users/#{@current_user.id}")
-    else
-      render("/")
-    end
-
-
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task

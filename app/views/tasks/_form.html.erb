@@ -18,12 +18,8 @@
 
   <div class="field">
     <%= form.label :deadline_date %>
-    <%= form.date_select :deadline_date, id: :task_deadline_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :deadline_time %>
-    <%= form.time_select :deadline_time, id: :task_deadline_time %>
+    <%= form.datetime_field :deadline_date, id: :task_deadline_date, value: Date.today, required: false %>
+    <!-- <%= form.time_select :deadline_time, {minute_step: 5}, id: :task_deadline_time, required: true %> -->
   </div>
 
   <div class="field">
