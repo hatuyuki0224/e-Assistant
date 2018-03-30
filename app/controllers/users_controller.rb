@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user, {only: [:show, :edit, :update, :edit_form]}
   before_action :ensure_correct_user, {only: [:edit, :update, :show]}
 
-
   def show
     @user = User.find_by(id: params[:id])
   end

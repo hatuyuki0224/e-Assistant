@@ -22,8 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# eAssistant
-<<<<<<< HEAD
-# e-Assistant
-=======
->>>>>>> origin/master

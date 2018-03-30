@@ -1,10 +1,2 @@
-<div id="id02" class="modal">
-  <span onclick="document.getElementById('calendar-form').innerHTML=''"
-          class="close" title="Close Modal">&times;</span>
-  <div class="modal-content animate">
-    <div class="container">
-      <%= render 'form', event: @event %>
-      <%= button_to "削除する", @event, method: :delete, remote: true %>
-    </div>
-  </div>
-</div>
+<%= render 'form', event: @event %>
+<%= button_to "削除する", @event, method: :delete, remote: true %>

@@ -1,5 +1,9 @@
-$('#calendar-form').html("<%= j (render 'edit') %>");
-$('#id02').fadeIn(400);
-$('#id02').on('ajax:success', function() {
-    $('#calendar-form').html('');
+$('#form-container').html("<%= j (render 'edit') %>");
+$('#id02').show();
+$('#form-container').on('ajax:success', function() {
+	$('#id02').hide();
+    $('#form-container').html('');
+});
+$('#id02-close').click(function() {
+    $('#form-container').html('');
 });

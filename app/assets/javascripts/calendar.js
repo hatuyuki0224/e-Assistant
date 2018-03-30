@@ -12,7 +12,7 @@ function eventCalendar() {
       url: "/events/new.js",
       data: data
     }).then(function () {
-      $(document).on('ajax:success', '#id02', function () {
+      $('#form-container').on('ajax:success', function () {
         calendar.fullCalendar('refetchEvents');
         calendar.fullCalendar('unselect');
       });
@@ -24,7 +24,7 @@ function eventCalendar() {
       type: "GET",
       url: `/events/${event.id}/edit.js`
     }).then(function () {
-      $(document).on('ajax:success', '#id02', function () {
+      $('#form-container').on('ajax:success', function () {
         calendar.fullCalendar('refetchEvents');
       });
     });
@@ -48,15 +48,15 @@ function eventCalendar() {
   };
 
 
-  var calendar = $('#event_calendar').fullCalendar({
+  var calendar = $('#calendar').fullCalendar({
     header: {
       left: 'today,prev,next',
       center: 'title',
       right: 'month,agendaWeek,agendaDay'
     },
     events: '/events.json',
-    lang: 'ja',
-    defaultView: 'agendaWeek',
+    locale: 'ja',
+    defaultView: 'month',
     height: 'auto',
     nowIndicator: true,
     selectable: true,
@@ -74,8 +74,8 @@ function eventCalendar() {
   return calendar;
 };
 function clearCalendar() {
-  $('#event_calendar').fullCalendar('delete'); // In case delete doesn't work.
-  $('#event_calendar').html('');
+  $('#calendar').fullCalendar('destroy'); // In case delete doesn't work.
+  $('#calendar').html('');
 };
 $(document).on('turbolinks:load', eventCalendar);
-$(document).on('turbolinks:before-cache', clearCalendar);
+$(document).on('turbolinks:before-cache', clearCalendar)
