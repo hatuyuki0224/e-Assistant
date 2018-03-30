@@ -56,7 +56,7 @@ function eventCalendar() {
     },
     events: '/events.json',
     locale: 'ja',
-    defaultView: 'agendaWeek',
+    defaultView: 'month',
     height: 'auto',
     nowIndicator: true,
     selectable: true,

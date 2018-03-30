@@ -1,8 +1,7 @@
-
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="/img/logo.png">
+  <link rel="icon" href="/img/logo-square.png">
   <link rel="stylesheet" type="text/css" href="application.css">
   <script type="text/javascript" src="application.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,47 +10,46 @@
   </title>
 </head>
 <body>
-  <!-- <a href="#" class="add">Scroll To Top</a> -->
+  <div class="stripe">
+    <!-- <a href="#" class="add">Scroll To Top</a> -->
+    <div id="topbar" onclick="openNav()" class="top-bar">
+        Welcome back, <%= @user.user_id %>! &#9668;
+    </div>
+    <div id="SideNav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <% if @user.user_image %>
+      <img class="circle" id="user_img" src="<%= "/img/#{@user.id}.jpg"%>" >
+      <% else %>
+      <img class="circle" id="user_img" src="/img/user.png">
+      <% end %>
+      <%= link_to("タスク一覧", "/tasks")%>
+      <%= link_to("プロフィール", "/users/#{@user.id}/edit")%>
+      <%= link_to("ログアウト", "/logout", {method: :post})%>
+    </div>
+    <div class="bgline"></div>
+    <a href="<%= "/users/#{@current_user.id}" %>"><img class="logo" src="/img/logo-circle.png"></a>
 
-  <div class="bgline"></div>
-  <div class="top-bar">
-    Welcome back, <%= @user.user_id %>!
-    <div class="dropdown">
-      <div onclick="dropdownfunction()" class="arrow-down" tabindex="2"></div>
-      <div id="myDropdown" class="dropdown-content">
-        <%= link_to("タスク一覧", "/tasks")%>
-        <%= link_to("プロフィール", "/users/#{@user.id}/edit")%>
-        <%= link_to("ログアウト", "/logout", {method: :post})%>
+    <!-- <div class="square">
+      現在のタスクは「タスク名」です。<br>
+      残り時間：... <br>
+      <%= @user.user_id%>さん、頑張ってください！
+    </div> -->
+    <div class="tooltip">
+      <button-top onclick="document.getElementById('id05').style.display='block'"><%= link_to 'タスク追加', new_task_path, remote: true %></button-top>
+      <div id="task-form"></div>
+    </div>
+    <div class="main-container">
+      <br>
+      <div id="calendar"></div>
+      <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'"
+        class="close" id="id02-close" title="Close Modal">&times;</span>
+        <div class="modal-content animate">
+          <div id="form-container" class="container"></div>
+        </div>
       </div>
     </div>
-  </div>
-  <a href="<%= "/users/#{@current_user.id}" %>"><img class="logo" src="/img/logo-circle.png"></a>
-  <br><br>
-  <% if @user.user_image %>
-  <img class="circle" id="user_img" src="<%= "/img/#{@user.id}.jpg"%>" >
-  <% else %>
-  <img class="circle" id="user_img" src="/img/user.png">
-  <% end %>
-  <!-- <div class="square">
-    現在のタスクは「タスク名」です。<br>
-    残り時間：... <br>
-    <%= @user.user_id%>さん、頑張ってください！
-  </div> -->
-  <div class="tooltip">
-    <button-top onclick="document.getElementById('id05').style.display='block'"><%= link_to 'タスク追加', new_task_path, remote: true %></button-top>
-    <div id="task-form"></div>
-  </div>
-  <div class="main-container">
-    <br>
-    <div id="calendar"></div>
-    <div id="id02" class="modal">
-      <span onclick="document.getElementById('id02').style.display='none'"
-      class="close" id="id02-close" title="Close Modal">&times;</span>
-      <div class="modal-content animate">
-        <div id="form-container" class="container"></div>
-      </div>
-    </div>
-  </div>
-  <br><br><br><br>
+    <br><br><br><br>
+</div>
 </body>
 </html>
