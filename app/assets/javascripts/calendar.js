@@ -64,7 +64,6 @@ function eventCalendar() {
     editable: true,
     eventOverlap: false,
     snapDuration: '00:05:00',
-    ignoreTimezone: false,
     select: create,
     eventClick: update,
     eventDrop: update_datetime,

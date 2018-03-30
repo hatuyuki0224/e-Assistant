@@ -31,13 +31,40 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.task_user = @current_user.id
+
+    current_time = Time.current
+    dead_line = @task.deadline
+
+    spares = [[current_time, dead_line]]
+
+    events_selected = current_user.events.where("start <= ? and end >= ?", dead_line, current_time).order(:start)
+
+    for event in events_selected do
+      if event.start <= current_time && event.end >= dead_line then
+        spares.pop
+      elsif event.start <= current_time then
+        spares.first[0] = event.end
+      elsif event.end >= dead_line then
+        spares.last[1] = event.start
+      else
+        spares.push([event.end, spares.last[1]])
+        spares[-2][1] = event.start
+      end
+    end
+
+    for spare in spares do
+      if (spare[1] - spare[0]) >= @task.required_time*60 then
+        current_user.events.create([title: @task.task_name, start: spare[0], end: spare[0]+@task.required_time*60])
+        break
+      end
+    end
+      
     respond_to do |format|
       if @task.save
         flash[:notice] = "新しいタスクを追加しました"
         format.html { redirect_to @task}
         format.json { render :show, status: :created, location: @task }
         format.js
-        redirect_to("/tasks")
       else
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -83,6 +110,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:task_name, :deadline_date, :deadline_time, :required_time, :priority, :color, :comment)
+      params.require(:task).permit(:task_name, :deadline, :required_time, :priority, :color, :comment)
     end
 end

@@ -18,14 +18,12 @@
 
   <div class="field">
     <%= form.label "開始日時" %>
-    <%= form.date_field :start, id: :event_start, required: true %>
-    <%= form.time_select :start, id: :event_start, required: true %>
+    <%= form.datetime_select :start, id: :event_start, required: true %>
   </div>
 
   <div class="field">
     <%= form.label "終了日時" %>
-    <%= form.date_field :end, id: :event_end, required: true %>
-    <%= form.time_select :end, id: :event_end, required: true %>
+    <%= form.datetime_select :end, id: :event_end, required: true %>
   </div>
 
   <div class="field">

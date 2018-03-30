@@ -17,13 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :deadline_date %>
-    <%= form.datetime_select :deadline_date, {minute_step: 5}, id: :task_deadline_date, value: Date.today, required: false %>
+    <%= form.label :deadline %>
+    <%= form.datetime_select :deadline, {minute_step: 5}, id: :task_deadline, value: Date.today, required: false %>
   </div>
 
   <div class="field">
     <%= form.label :required_time %>
-    <%= form.time_select :required_time, id: :task_required_time %>
+    <%= form.text_field :required_time, id: :task_required_time %>
   </div>
 
   <div class="field">

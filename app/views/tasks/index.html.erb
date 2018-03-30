@@ -58,8 +58,8 @@
           <% if(task.task_user.to_i == @current_user.id)%>
           <tr>
             <td><%= link_to task.task_name, edit_task_path(task), remote: true %></td>
-            <td><%= task.deadline_date%></td>
-            <td><%= task.required_time.hour %>時間<%= task.required_time.min %>分</td>
+            <td><%= task.deadline%></td>
+            <td><%= task.required_time %>分</td>
             <td><%= task.priority %></td>
           </tr>
           <% end %>
