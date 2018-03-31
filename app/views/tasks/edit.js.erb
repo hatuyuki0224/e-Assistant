@@ -1,5 +1,9 @@
-$('#task-form').html("<%= j (render 'edit') %>");
-$('#id05').fadeIn(400);
-$('#id05').on('ajax:success', function() {
-    $('#task-form').html('');
+$('#task-container').html("<%= j (render 'edit') %>");
+$('#id01').show();
+$('#task-container').on('ajax:success', function() {
+	$('#id01').hide();
+    $('#task-container').html('');
+});
+$('#id01-close').click(function() {
+    $('#task-container').html('');
 });

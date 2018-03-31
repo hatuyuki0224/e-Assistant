@@ -1,9 +1,1 @@
-<div id="id05" class="modal">
-  <span onclick="document.getElementById('task-form').innerHTML=''"
-          class="close" title="Close Modal">&times;</span>
-  <div class="modal-content animate">
-    <div class="container">
-      <%= render 'form', task: @task %>
-    </div>
-  </div>
-</div>
+<%= render 'form', task: @task %>

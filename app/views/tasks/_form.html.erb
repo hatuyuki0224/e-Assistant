@@ -1,4 +1,4 @@
-<%= form_with(model: task, local: true, id: "event_form", class: "modal-content animate") do |form| %>
+<%= form_with(model: task, local: true) do |form| %>
   <% if task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="container">
+
   <div class="field">
     <%= form.label :task_name %>
     <%= form.text_field :task_name, id: :task_task_name %>
@@ -44,5 +44,4 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-</div>
 <% end %>

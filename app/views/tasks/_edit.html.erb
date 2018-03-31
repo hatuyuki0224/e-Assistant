@@ -1,10 +1,2 @@
-<div id="id05" class="modal">
-  <span onclick="document.getElementById('task-form').innerHTML=''"
-          class="close" title="Close Modal">&times;</span>
-  <div class="modal-content animate">
-    <%= render 'form', task: @task %>
-    <div class="container">
-      <%= button_to "削除する", @task, method: :delete, remote: true %>
-    </div>
-  </div>
-</div>
+<%= render 'form', task: @task %>
+<%= button_to "削除する", @task, method: :delete, remote: true %>

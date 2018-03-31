@@ -35,8 +35,14 @@
       <%= @user.user_id%>さん、頑張ってください！
     </div> -->
     <div class="tooltip">
-      <button-top onclick="document.getElementById('id05').style.display='block'"><%= link_to 'タスク追加', new_task_path, remote: true %></button-top>
-      <div id="task-form"></div>
+      <button-top><%= link_to 'タスク追加', new_task_path, remote: true %></button-top>
+      <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" id="id01-close" title="Close Modal">&times;</span>
+        <div class="modal-content animate">
+          <div id="task-container" class="container"></div>
+        </div>
+      </div>
     </div>
     <div class="main-container">
       <br>
